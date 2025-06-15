@@ -15,13 +15,19 @@ import androidx.room.Room;
 
 import java.util.Collections;
 import java.util.List;
+import android.app.AlertDialog;
+import android.media.MediaPlayer;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
+
 
 public class QuizRuleta extends AppCompatActivity {
     TextView txtPregunta;
     Button btn1, btn2, btn3;
 
-    List<Pregunta> preguntas;  // lista de preguntas
-    int preguntaIndex = 0;     // índice actual
+    List<Pregunta> preguntas;
+    int preguntaIndex = 0;
 
     AppDatabase db;
     @Override
@@ -49,26 +55,35 @@ public class QuizRuleta extends AppCompatActivity {
             mostrarPregunta();
         } else {
             Toast.makeText(this, "No hay preguntas para esta categoría", Toast.LENGTH_SHORT).show();
-            finish(); // salir si no hay preguntas
+            finish();
         }
 
         View.OnClickListener listener = v -> {
             Button b = (Button) v;
             Pregunta actual = preguntas.get(preguntaIndex);
-            if (b.getText().toString().equals(actual.respuestaCorrecta)) {
-                Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show();
-            }
+            boolean esCorrecta = b.getText().toString().equals(actual.respuestaCorrecta);
 
-            // Mostrar siguiente pregunta
-            preguntaIndex++;
-            if (preguntaIndex < preguntas.size()) {
-                mostrarPregunta();
-            } else {
-                Toast.makeText(this, "¡Fin del cuestionario!", Toast.LENGTH_SHORT).show();
-                finish(); // O puedes redirigir a otra pantalla
-            }
+            int sonido = esCorrecta ? R.raw.correct : R.raw.wrong;
+            MediaPlayer mediaPlayer = MediaPlayer.create(this, sonido);
+            mediaPlayer.start();
+
+
+            int tipoAlerta = esCorrecta ? SweetAlertDialog.SUCCESS_TYPE : SweetAlertDialog.ERROR_TYPE;
+            SweetAlertDialog dialogo = new SweetAlertDialog(this, tipoAlerta);
+            dialogo.setTitleText(esCorrecta ? "¡Correcto! 🎉" : "¡Incorrecto! ❌");
+            dialogo.setContentText(esCorrecta ? "¡Muy bien!" : "La respuesta correcta era:\n" + actual.respuestaCorrecta);
+            dialogo.setConfirmText("Siguiente");
+            dialogo.setCancelable(false);
+            dialogo.setConfirmClickListener(sDialog -> {
+                sDialog.dismissWithAnimation();
+                preguntaIndex++;
+                if (preguntaIndex < preguntas.size()) {
+                    mostrarPregunta();
+                } else {
+                    mostrarDialogoFinal();
+                }
+            });
+            dialogo.show();
         };
 
         btn1.setOnClickListener(listener);
@@ -83,5 +98,13 @@ public class QuizRuleta extends AppCompatActivity {
         btn1.setText(p.opcion1);
         btn2.setText(p.opcion2);
         btn3.setText(p.opcion3);
+    }
+    private void mostrarDialogoFinal() {
+        new AlertDialog.Builder(this)
+                .setTitle("🎮 ¡Has terminado!")
+                .setMessage("Gracias por jugar el quiz de categoría.")
+                .setCancelable(false)
+                .setPositiveButton("Volver", (dialog, which) -> finish())
+                .show();
     }
 }

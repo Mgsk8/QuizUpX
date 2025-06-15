@@ -46,20 +46,17 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="@android:color/white">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieRuleta"
+        <com.example.quizupx.WheelView
+            android:id="@+id/wheelView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:lottie_rawRes="@raw/ruleta_animacion"
-            app:lottie_loop="false"
-            app:lottie_autoPlay="false" />
+            android:layout_height="match_parent" />
     </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnVolver"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Menú"
+        android:text="Volver"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:background="@drawable/boton_gradiente"
@@ -67,4 +64,5 @@
         app:layout_constraintTop_toBottomOf="@id/cardContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

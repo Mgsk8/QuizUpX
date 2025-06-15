@@ -29,6 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {
@@ -42,7 +43,8 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation ("androidx.room:room-runtime:2.6.1")
     annotationProcessor ("androidx.room:room-compiler:2.6.1")
-    implementation ("com.airbnb.android:lottie:6.1.0")
 
     implementation ("androidx.room:room-ktx:2.6.1")
+
+    implementation ("com.github.f0ris.sweetalert:library:1.5.6")
 }

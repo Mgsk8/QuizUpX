@@ -5,22 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="#6595F5"
     tools:context=".QuizRuleta">
 
-    <!-- Tarjeta principal -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#FFFFFF"
+        android:background="#1E1E1E"
         android:padding="24dp">
 
         <LinearLayout
@@ -29,7 +28,6 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <!-- Indicador de progreso -->
             <TextView
                 android:id="@+id/txtProgress"
                 android:layout_width="wrap_content"
@@ -37,22 +35,20 @@
                 android:text="Pregunta 1 de 5"
                 android:textSize="16sp"
                 android:textStyle="italic"
-                android:textColor="#757575"
+                android:textColor="#FF9800"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Pregunta -->
             <TextView
                 android:id="@+id/txtPregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="¿Cuál es la capital de Francia?"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="#212121"
-                android:layout_marginBottom="28dp" />
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="32dp" />
 
-            <!-- Botones de opciones -->
             <Button
                 android:id="@+id/btnOpcion1"
                 style="@style/QuizButtonStyle"
@@ -69,7 +65,6 @@
                 android:text="Berlín" />
 
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

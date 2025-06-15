@@ -1,5 +1,6 @@
 package com.example.quizupx;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -21,5 +22,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
             //sapo
         });
+
+        Intent intento = new Intent(this, Ruleta.class);
+        startActivity(intento);
     }
 }
