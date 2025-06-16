@@ -100,11 +100,16 @@ public class QuizRuleta extends AppCompatActivity {
         btn3.setText(p.opcion3);
     }
     private void mostrarDialogoFinal() {
-        new AlertDialog.Builder(this)
-                .setTitle("🎮 ¡Has terminado!")
-                .setMessage("Gracias por jugar el quiz de categoría.")
-                .setCancelable(false)
-                .setPositiveButton("Volver", (dialog, which) -> finish())
-                .show();
+        SweetAlertDialog dialogoFinal = new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE);
+        dialogoFinal.setTitleText("¡Quiz completado! 🏆");
+        dialogoFinal.setContentText("¡Felicitaciones! Has terminado el juego.");
+        dialogoFinal.setConfirmText("Volver al inicio");
+        dialogoFinal.setCancelable(false);
+        dialogoFinal.setConfirmClickListener(sDialog -> {
+            sDialog.dismissWithAnimation();
+            finish(); // Cierra la actividad actual o navega a la pantalla principal
+        });
+        dialogoFinal.show();
     }
+
 }

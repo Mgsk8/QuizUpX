@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             //sapo
         });
 
-        Intent intento = new Intent(this, Ruleta.class);
+        Intent intento = new Intent(this, Memoria_juego.class);
         startActivity(intento);
     }
 }
