@@ -21,8 +21,24 @@
             android:name=".Ruleta"
             android:exported="false" />
         <activity android:name=".QuizRuleta" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityPuntuacion"
+            android:exported="false" />
+        <activity
+            android:name=".EscogerJugador"
+            android:exported="false" />
+        <activity
+            android:name=".JuegoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreguntaOpcionMultipleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerdaderoFalso"
+            android:exported="false" />
+        <activity
+            android:name=".MenuQuiz"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +46,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
