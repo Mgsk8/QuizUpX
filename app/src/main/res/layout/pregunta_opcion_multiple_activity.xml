@@ -5,178 +5,213 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6996f1"
+    android:background="@drawable/fondo_gradiente"
     tools:context=".PreguntaOpcionMultipleActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPreguntaMultiple"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/border"
-        android:orientation="vertical"
-        android:padding="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/edtPregunta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Escribe la pregunta aquí"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:background="#eee0c3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-            <EditText
-                android:id="@+id/edtOpcion1"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="#FF9800"
-                android:hint="Opción 1"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#ffffff"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rbCorrecta1"
+            <!-- Título -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="#FF9800"
-                android:buttonTint="#ffffff" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/edtOpcion2"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="#FF9800"
-                android:hint="Opción 2"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#ffffff"
+                android:layout_marginBottom="16dp"
+                android:text="Crear Pregunta de Opción Múltiple"
+                android:textColor="#333333"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/rbCorrecta2"
-                android:layout_width="wrap_content"
+            <!-- Campo de Pregunta -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="#FF9800"
-                android:buttonTint="#ffffff" />
-        </LinearLayout>
+                android:layout_marginBottom="20dp"
+                android:hint="Escribe la pregunta aquí"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPregunta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtOpcion3"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="#FF9800"
-                android:hint="Opción 3"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#ffffff"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rbCorrecta3"
-                android:layout_width="wrap_content"
+            <!-- Opciones con radio -->
+            <!-- Repetido 4 veces -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="#FF9800"
-                android:buttonTint="#ffffff" />
-        </LinearLayout>
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Opción 1"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp">
 
-            <EditText
-                android:id="@+id/edtOpcion4"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="#FF9800"
-                android:hint="Opción 4"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#ffffff"
-                android:textStyle="bold" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOpcion1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <RadioButton
-                android:id="@+id/rbCorrecta4"
-                android:layout_width="wrap_content"
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbCorrecta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:buttonTint="#4CAF50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="#FF9800"
-                android:buttonTint="#ffffff" />
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Opción 2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOpcion2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbCorrecta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:buttonTint="#4CAF50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Opción 3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOpcion3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbCorrecta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:buttonTint="#4CAF50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Opción 4">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOpcion4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbCorrecta4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:buttonTint="#4CAF50" />
+            </LinearLayout>
+
+            <!-- Puntos -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Puntos que vale esta pregunta">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPuntos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón Guardar -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarPregunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:onClick="guardar"
+                android:text="Guardar Pregunta"
+                android:textColor="@android:color/white"
+                app:backgroundTint="#357194"
+                app:cornerRadius="16dp" />
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        <!-- Campo para los puntos -->
-        <EditText
-            android:id="@+id/edtPuntos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
-            android:hint="Puntos que vale esta pregunta"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#808080"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <!-- Botón para guardar -->
-        <Button
-            android:id="@+id/btnGuardarPregunta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="#357194"
-            android:elevation="6dp"
-            android:padding="14dp"
-            android:text="Guardar Pregunta"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:onClick="guardar" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

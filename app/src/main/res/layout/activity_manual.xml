@@ -5,64 +5,77 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo_gradiente_memoria"
     tools:context=".ManualActivity">
 
-    <ScrollView
-        android:id="@+id/scrollManual"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardManual"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        android:padding="20dp"
+        android:layout_margin="24dp"
+        android:backgroundTint="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollManual"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:background="#fff3e0"
+            android:padding="24dp">
 
-            <TextView
-                android:id="@+id/tituloManual"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="📘 Manual del Juego"
-                android:textColor="#0D47A1"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/contenidoManual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="6dp"
-                android:text="📌 Instrucciones del Juego:\n\n
+                <!-- Título -->
+                <TextView
+                    android:id="@+id/tituloManual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center"
+                    android:text="📘 Manual del Juego"
+                    android:textColor="#0D47A1"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
-1️⃣ Un jugador será el anfitrión y agregará las preguntas. \n
+                <!-- Contenido -->
+                <TextView
+                    android:id="@+id/contenidoManual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8dp"
+                    android:text="
+📌 Instrucciones del Juego: \n\n
 
-2️⃣ Las preguntas pueden ser de tipo Verdadero/Falso o Múltiple Opción. \n
+1️⃣ Un jugador será el anfitrión y agregará las preguntas.\n
 
-3️⃣ Cada jugador responderá todas las preguntas en su turno. \n
+2️⃣ Las preguntas pueden ser de tipo Verdadero/Falso o de Opción Múltiple.\n
 
-4️⃣ Hay un temporizador de 30 segundos por pregunta. \n
+3️⃣ Cada jugador responderá todas las preguntas en su turno.\n
 
-5️⃣ Al final, se mostrará la puntuación de cada jugador en una pantalla de resultados. \n
+4️⃣ Hay un temporizador de 30 segundos por pregunta.\n
 
-🧠 Juegos adicionales: \n
+5️⃣ Al finalizar, se mostrará la puntuación de cada jugador en una pantalla de resultados.\n
 
-🎯 Ruleta: Juego aleatorio para decidir turnos o retos. \n
+🧠 Juegos adicionales\n
 
-🧩 Memoria: Juego clásico para entrenar la mente. \n
+🎯 Ruleta: Juego aleatorio para decidir turnos o retos.\n
+
+🧩 Memoria: Juego clásico para entrenar la mente.\n
 
 🌟 ¡Diviértete y demuestra tus conocimientos!"
-                android:textColor="#212121"
-                android:textSize="17sp" />
-        </LinearLayout>
-    </ScrollView>
+                    android:textColor="#424242"
+                    android:textIsSelectable="true"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

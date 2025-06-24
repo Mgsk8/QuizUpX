@@ -5,62 +5,76 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6996f1"
+    android:background="@drawable/fondo_gradiente_memoria"
     android:padding="32dp"
     tools:context=".MenuQuiz">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="32dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/btnOpcionMultiple"
-            android:layout_width="347dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FF9800"
-            android:onClick="opcionMultiple"
-            android:padding="16dp"
-            android:text="Opción Múltiple"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-             />
-
-        <View
-            android:id="@+id/divider9"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp" />
-
-        <Button
-            android:id="@+id/btnVerdaderoFalso"
-            android:layout_width="347dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF9800"
-            android:onClick="verdaderoFalso"
-            android:padding="16dp"
-            android:text="Verdadero o Falso"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="#fff3e0"
+            android:padding="32dp">
 
-        <View
-            android:id="@+id/divider10"
-            android:layout_width="match_parent"
-            android:layout_height="22dp" />
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuración del Quiz"
+                android:textSize="22sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
 
-        <Button
-            android:id="@+id/btnIniciarJuego"
-            android:layout_width="347dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#4CAF50"
-            android:enabled="false"
-            android:onClick="iniciarJuego"
-            android:padding="16dp"
-            android:text="Iniciar Juego"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpcionMultiple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:onClick="opcionMultiple"
+                android:text="Opción Múltiple"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:backgroundTint="#9C27B0"
+                app:cornerRadius="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerdaderoFalso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verdadero o Falso"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:onClick="verdaderoFalso"
+                app:cornerRadius="16dp"
+                app:backgroundTint="#FF9800"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIniciarJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:onClick="iniciarJuego"
+                android:text="Iniciar Juego"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:backgroundTint="#4CAF50"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

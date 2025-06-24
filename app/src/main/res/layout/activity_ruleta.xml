@@ -68,7 +68,7 @@
         android:textColor="#000"
         android:fontFamily="sans-serif"
         android:backgroundTint="#eee0c3"
-        android:cornerRadius="24dp"
+
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:paddingTop="12dp"

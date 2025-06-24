@@ -102,9 +102,8 @@ public class Memoria_juego extends AppCompatActivity {
             img.setImageResource(resId);
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            int size = getResources().getDisplayMetrics().widthPixels / 3 - 48;
-            params.width = size;
-            params.height = size;
+            params.width = 0;
+            params.height = GridLayout.LayoutParams.WRAP_CONTENT;
             params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             container.setLayoutParams(params);
