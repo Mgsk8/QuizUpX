@@ -6,11 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,17 +15,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.ArrayList;
 
 public class EscogerJugador extends AppCompatActivity {
 
     Spinner spinnerCantidad;
     EditText[] camposNombres;
+    TextInputLayout[] contenedoresNombres;
     Button btnIniciarJuego;
-    LinearLayout configLayout, juegoLayout;
-    TextView txtPregunta, txtTemporizador;
-    RadioGroup radioGroup;
-    RadioButton rb1, rb2, rb3, rb4;
+    MaterialCardView configLayout, juegoLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +44,7 @@ public class EscogerJugador extends AppCompatActivity {
         configLayout = findViewById(R.id.configLayout);
         juegoLayout = findViewById(R.id.LY);
 
+        // Referencia a los EditText
         camposNombres = new EditText[]{
                 findViewById(R.id.nombreJugador1),
                 findViewById(R.id.nombreJugador2),
@@ -55,6 +53,16 @@ public class EscogerJugador extends AppCompatActivity {
                 findViewById(R.id.nombreJugador5)
         };
 
+        // Referencia a los contenedores TextInputLayout
+        contenedoresNombres = new TextInputLayout[]{
+                findViewById(R.id.layoutJugador1),
+                findViewById(R.id.layoutJugador2),
+                findViewById(R.id.layoutJugador3),
+                findViewById(R.id.layoutJugador4),
+                findViewById(R.id.layoutJugador5)
+        };
+
+        // Configurar spinner con cantidades
         Integer[] opciones = {1, 2, 3, 4, 5};
         ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -78,7 +86,7 @@ public class EscogerJugador extends AppCompatActivity {
             for (int i = 0; i < cantidad; i++) {
                 String nombre = camposNombres[i].getText().toString().trim();
                 if (nombre.isEmpty()) {
-                    Toast.makeText(this, "Nombre jugador " + (i + 1) + " vacío", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Nombre del jugador " + (i + 1) + " está vacío", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 nombres.add(nombre);
@@ -87,16 +95,18 @@ public class EscogerJugador extends AppCompatActivity {
             Intent intent = new Intent(this, JuegoActivity.class);
             intent.putStringArrayListExtra("nombres", nombres);
             startActivity(intent);
-            finish(); // Opcional
+            finish(); // opcional
         });
-
-        // No es necesario inicializar la parte del juego aquí, ya que se usa en otra actividad.
     }
 
     private void mostrarCampos(int cantidad) {
         for (int i = 0; i < camposNombres.length; i++) {
-            camposNombres[i].setVisibility(i < cantidad ? View.VISIBLE : View.GONE);
-            if (i >= cantidad) camposNombres[i].setText("");
+            if (i < cantidad) {
+                contenedoresNombres[i].setVisibility(View.VISIBLE);
+            } else {
+                contenedoresNombres[i].setVisibility(View.GONE);
+                camposNombres[i].setText("");
+            }
         }
     }
 }

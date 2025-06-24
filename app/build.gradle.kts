@@ -29,6 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {
@@ -40,4 +41,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation ("androidx.room:room-runtime:2.6.1")
+    annotationProcessor ("androidx.room:room-compiler:2.6.1")
+    implementation ("com.google.android.material:material:1.11.0")
+
+    implementation ("androidx.room:room-ktx:2.6.1")
+
+    implementation ("com.github.f0ris.sweetalert:library:1.5.6")
+    implementation ("com.google.android.material:material:1.11.0")
+
 }

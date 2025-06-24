@@ -5,68 +5,115 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JuegoActivity">
+    android:background="@drawable/fondo_gradiente_memoria"
+    tools:context=".JuegoActivity"
+    android:padding="24dp">
 
-    <LinearLayout
-        android:id="@+id/LY"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPregunta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="24dp">
 
-        <TextView
-            android:id="@+id/txtPregunta"
-            android:layout_width="411dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pregunta aquí"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="#fff3e0"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtTemporizador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tiempo: 30s"
-            android:textColor="#FF5722"
-            android:textSize="16sp" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="411dp"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/rb1"
+            <TextView
+                android:id="@+id/txtPregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:layout_marginBottom="16dp"
+                android:text="¿Cuál es la capital de Francia?"
+                android:textAlignment="center"
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/rb2"
+            <TextView
+                android:id="@+id/txtTemporizador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Tiempo: 30s"
+                android:textColor="#F44336"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/rb3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_button_selector"
+                    android:buttonTint="#3F51B5"
+                    android:padding="12dp"
+                    android:text="París"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/rb4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
+                <RadioButton
+                    android:id="@+id/rb2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_button_selector"
+                    android:buttonTint="#3F51B5"
+                    android:padding="12dp"
+                    android:text="Madrid"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
-            <Button
+                <RadioButton
+                    android:id="@+id/rb3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_button_selector"
+                    android:buttonTint="#3F51B5"
+                    android:padding="12dp"
+                    android:text="Berlín"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/rb4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_button_selector"
+                    android:buttonTint="#3F51B5"
+                    android:padding="12dp"
+                    android:text="Roma"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSiguiente"
-                android:layout_width="411dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#4CAF50"
                 android:text="Siguiente"
-                android:textColor="#FFFFFF" />
-        </RadioGroup>
-    </LinearLayout>
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:backgroundTint="#4CAF50"
+                app:cornerRadius="16dp"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@android:color/white" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

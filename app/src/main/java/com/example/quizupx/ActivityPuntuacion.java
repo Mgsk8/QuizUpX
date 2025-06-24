@@ -48,7 +48,7 @@ public class ActivityPuntuacion extends AppCompatActivity {
         }
 
         btnVolverMenu.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MenuQuiz.class); // o MainActivity
+            Intent intent = new Intent(this, MainActivity.class); // o MainActivity
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();

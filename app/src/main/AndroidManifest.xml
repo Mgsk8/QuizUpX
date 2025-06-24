@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizUpX"
         tools:targetApi="31">
+        <activity
+            android:name=".ManualActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Memoria_juego"
+            android:exported="false" />
+        <activity
+            android:name=".Ruleta"
+            android:exported="false" />
+        <activity android:name=".QuizRuleta" />
         <activity
             android:name=".ActivityPuntuacion"
             android:exported="false" />
@@ -29,6 +41,9 @@
             android:exported="false" />
         <activity
             android:name=".MenuQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
