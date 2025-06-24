@@ -48,4 +48,6 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.6.1")
 
     implementation ("com.github.f0ris.sweetalert:library:1.5.6")
+    implementation ("com.google.android.material:material:1.11.0")
+
 }
