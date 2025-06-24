@@ -23,12 +23,12 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class QuizRuleta extends AppCompatActivity {
-    TextView txtPregunta;
+    TextView txtPregunta, txtProgress;
     Button btn1, btn2, btn3;
 
     List<Pregunta> preguntas;
     int preguntaIndex = 0;
-
+    int puntaje = 0;
     AppDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,8 @@ public class QuizRuleta extends AppCompatActivity {
         btn1 = findViewById(R.id.btnOpcion1);
         btn2 = findViewById(R.id.btnOpcion2);
         btn3 = findViewById(R.id.btnOpcion3);
+        txtProgress = findViewById(R.id.txtProgress);
+
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "preguntas-db").allowMainThreadQueries().build();
 
         String categoria = getIntent().getStringExtra("categoria");
@@ -62,7 +64,7 @@ public class QuizRuleta extends AppCompatActivity {
             Button b = (Button) v;
             Pregunta actual = preguntas.get(preguntaIndex);
             boolean esCorrecta = b.getText().toString().equals(actual.respuestaCorrecta);
-
+            if (esCorrecta) puntaje++;
             int sonido = esCorrecta ? R.raw.correct : R.raw.wrong;
             MediaPlayer mediaPlayer = MediaPlayer.create(this, sonido);
             mediaPlayer.start();
@@ -79,6 +81,7 @@ public class QuizRuleta extends AppCompatActivity {
                 preguntaIndex++;
                 if (preguntaIndex < preguntas.size()) {
                     mostrarPregunta();
+                    animarOpciones();
                 } else {
                     mostrarDialogoFinal();
                 }
@@ -98,12 +101,15 @@ public class QuizRuleta extends AppCompatActivity {
         btn1.setText(p.opcion1);
         btn2.setText(p.opcion2);
         btn3.setText(p.opcion3);
+        txtProgress.setText("Pregunta " + (preguntaIndex + 1) + " de " + preguntas.size());
+
     }
     private void mostrarDialogoFinal() {
         SweetAlertDialog dialogoFinal = new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE);
         dialogoFinal.setTitleText("¡Quiz completado! 🏆");
         dialogoFinal.setContentText("¡Felicitaciones! Has terminado el juego.");
         dialogoFinal.setConfirmText("Volver al inicio");
+        dialogoFinal.setContentText("¡Felicitaciones! Has terminado el juego.\nTu puntaje: " + puntaje + " de " + preguntas.size());
         dialogoFinal.setCancelable(false);
         dialogoFinal.setConfirmClickListener(sDialog -> {
             sDialog.dismissWithAnimation();
@@ -111,5 +117,15 @@ public class QuizRuleta extends AppCompatActivity {
         });
         dialogoFinal.show();
     }
+    private void animarOpciones() {
+        btn1.setAlpha(0f);
+        btn2.setAlpha(0f);
+        btn3.setAlpha(0f);
+
+        btn1.animate().alpha(1f).setDuration(400).setStartDelay(100).start();
+        btn2.animate().alpha(1f).setDuration(400).setStartDelay(250).start();
+        btn3.animate().alpha(1f).setDuration(400).setStartDelay(400).start();
+    }
+
 
 }

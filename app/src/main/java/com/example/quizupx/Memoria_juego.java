@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class Memoria_juego extends AppCompatActivity {
     TextView txtNivel;
     FrameLayout secuenciaContainer;
@@ -78,6 +80,8 @@ public class Memoria_juego extends AppCompatActivity {
                 FrameLayout.LayoutParams.MATCH_PARENT
         ));
         image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        image.setAlpha(0f);
+        image.animate().alpha(1f).setDuration(300).start();
         secuenciaContainer.addView(image);
 
         handler.postDelayed(() -> mostrarSecuencia(index + 1), 1200);
@@ -98,8 +102,9 @@ public class Memoria_juego extends AppCompatActivity {
             img.setImageResource(resId);
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = 0;
-            params.height = GridLayout.LayoutParams.WRAP_CONTENT;
+            int size = getResources().getDisplayMetrics().widthPixels / 3 - 48;
+            params.width = size;
+            params.height = size;
             params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             container.setLayoutParams(params);
@@ -150,19 +155,32 @@ public class Memoria_juego extends AppCompatActivity {
         }
 
         private void verificarResultado() {
+            SweetAlertDialog dialogo = new SweetAlertDialog(this,
+                    seleccionUsuario.equals(secuenciaCorrecta) ?
+                            SweetAlertDialog.SUCCESS_TYPE :
+                            SweetAlertDialog.ERROR_TYPE);
+
+            dialogo.setTitleText(seleccionUsuario.equals(secuenciaCorrecta) ? "¡Correcto! 🎉" : "¡Incorrecto! ❌");
+            dialogo.setContentText(seleccionUsuario.equals(secuenciaCorrecta) ?
+                    "Pasaste al nivel " + (nivelActual + 1) :
+                    "Vuelve a intentarlo desde el nivel 1");
+            dialogo.setConfirmText("Continuar");
+            dialogo.setCancelable(false);
+            dialogo.setConfirmClickListener(sweetAlertDialog -> {
+                sweetAlertDialog.dismissWithAnimation();
             if (seleccionUsuario.equals(secuenciaCorrecta)) {
-                Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show();
                 nivelActual++;
                 handler.postDelayed(this::reiniciarJuego, 1500);
             } else {
-                Toast.makeText(this, "¡Incorrecto!", Toast.LENGTH_SHORT).show();
                 nivelActual = 1;
                 btnReiniciar.setVisibility(View.VISIBLE);
                 btnReiniciar.setOnClickListener(v -> reiniciarJuego());
             }
 
-        }
+        });
+            dialogo.show();
 
+        }
 
     private void reiniciarJuego() {
         txtNivel.setText("Nivel " + nivelActual);
