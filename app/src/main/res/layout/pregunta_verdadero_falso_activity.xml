@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6996f1"
+    tools:context=".VerdaderoFalso">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutVerdaderoFalso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Pregunta -->
+        <EditText
+            android:id="@+id/edtPregunta2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Escribe la pregunta aquí"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Puntos -->
+
+        <!-- Opciones Verdadero/Falso -->
+
+        <RadioGroup
+            android:id="@+id/radioGroupVF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioVerdadero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00C853"
+                android:buttonTint="#00C853"
+                android:text="Verdadero"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="?android:attr/listDivider" />
+
+            <RadioButton
+                android:id="@+id/radioFalso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#D50000"
+                android:buttonTint="#D50000"
+                android:text="Falso"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+
+        <!-- Botón -->
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="?android:attr/listDivider" />
+
+        <EditText
+            android:id="@+id/edtPuntosVF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Puntos asignados"
+            android:inputType="number"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#CCCCCC"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnResponderVF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#357194"
+            android:elevation="4dp"
+            android:onClick="guardarPreguntaVF"
+            android:padding="14dp"
+            android:text="Confirmar Respuesta"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

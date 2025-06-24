@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6996f1"
+    tools:context=".PreguntaOpcionMultipleActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edtPregunta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Escribe la pregunta aquí"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtOpcion1"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#FF9800"
+                android:hint="Opción 1"
+                android:padding="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#ffffff"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbCorrecta1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="#FF9800"
+                android:buttonTint="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtOpcion2"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#FF9800"
+                android:hint="Opción 2"
+                android:padding="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#ffffff"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbCorrecta2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="#FF9800"
+                android:buttonTint="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtOpcion3"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#FF9800"
+                android:hint="Opción 3"
+                android:padding="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#ffffff"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbCorrecta3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="#FF9800"
+                android:buttonTint="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtOpcion4"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#FF9800"
+                android:hint="Opción 4"
+                android:padding="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#ffffff"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbCorrecta4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="#FF9800"
+                android:buttonTint="#ffffff" />
+        </LinearLayout>
+
+        <!-- Campo para los puntos -->
+        <EditText
+            android:id="@+id/edtPuntos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:hint="Puntos que vale esta pregunta"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#808080"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Botón para guardar -->
+        <Button
+            android:id="@+id/btnGuardarPregunta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#357194"
+            android:elevation="6dp"
+            android:padding="14dp"
+            android:text="Guardar Pregunta"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:onClick="guardar" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

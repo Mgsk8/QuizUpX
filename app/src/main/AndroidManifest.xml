@@ -13,25 +13,22 @@
         android:theme="@style/Theme.QuizUpX"
         tools:targetApi="31">
         <activity
-            android:name=".ResponderPreguntas"
+            android:name=".ActivityPuntuacion"
             android:exported="false" />
         <activity
-            android:name=".Pregunta"
+            android:name=".EscogerJugador"
+            android:exported="false" />
+        <activity
+            android:name=".JuegoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreguntaOpcionMultipleActivity"
             android:exported="false" />
         <activity
             android:name=".VerdaderoFalso"
             android:exported="false" />
         <activity
-            android:name=".SeleccionarTipo"
-            android:exported="false" />
-        <activity
-            android:name=".CrearPregunta"
-            android:exported="false" />
-        <activity
-            android:name=".MenuPrincipalQuiz"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".MenuQuiz"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
