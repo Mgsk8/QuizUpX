@@ -25,6 +25,10 @@ public class ListaPreguntas {
         public List<PreguntaQuiz> getPreguntas() {
             return preguntas;
         }
+
+        public void limpiar() {
+            preguntas.clear();
+        }
 }
 
 

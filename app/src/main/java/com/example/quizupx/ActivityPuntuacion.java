@@ -48,6 +48,8 @@ public class ActivityPuntuacion extends AppCompatActivity {
         }
 
         btnVolverMenu.setOnClickListener(v -> {
+            ListaPreguntas.getInstance().limpiar();
+
             Intent intent = new Intent(this, MainActivity.class); // o MainActivity
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
